@@ -27,6 +27,7 @@ public class Main {
 				System.out.println("No data for your query");
 			} else {
 				handler.buildCSVFile(jsonArray);
+				System.out.println("File is generated");
 			}
 		} catch (MalformedURLException e) {
 			System.err.println("Error: Error in RESTful API ");

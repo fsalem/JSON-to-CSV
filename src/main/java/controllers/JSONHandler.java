@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -17,11 +18,13 @@ import org.json.simple.parser.ParseException;
 import au.com.bytecode.opencsv.CSVWriter;
 
 /**
- *
- * This class is for retrieve JSON from URL then save some properties from this JSON to CSV file
+ * 
+ * This class is for retrieve JSON from URL then save some properties from this
+ * JSON to CSV file
+ * 
  * @author farouq
  * 
- *
+ * 
  */
 public class JSONHandler {
 
@@ -30,18 +33,22 @@ public class JSONHandler {
 	public JSONHandler() throws FileNotFoundException, IOException {
 		load();
 	}
+
 	/**
-	 * Load properties file which contains the url of the REST service, CSV header, CSV file name
+	 * Load properties file which contains the url of the REST service, CSV
+	 * header, CSV file name
+	 * 
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
 	private void load() throws FileNotFoundException, IOException {
-		propertiesFile.load(new FileInputStream(
-				"src/main/resources/config.properties"));
+		propertiesFile.load(JSONHandler.class
+				.getResourceAsStream("/config.properties"));
 	}
 
 	/**
 	 * This method is to load the JSONArray from the REST URL
+	 * 
 	 * @param query
 	 * @return JSONArray
 	 * @throws MalformedURLException
@@ -58,6 +65,7 @@ public class JSONHandler {
 
 	/**
 	 * Convert the JSONArray to CSV file
+	 * 
 	 * @param jsonArray
 	 * @throws IOException
 	 */
